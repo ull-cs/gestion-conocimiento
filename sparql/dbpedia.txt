@@ -125,3 +125,13 @@ WHERE {
 }
 
 ```
+7. Busca recursos (organizaciones) en DBpedia que tengan una etiqueta (label) en inglés. La salida debe incluir el recurso y su respectiva etiqueta.
+```
+SELECT ?resource ?label
+WHERE {
+    ?resource rdf:type dbo:Organisation .
+    ?resource rdfs:label ?label .
+    FILTER (lang(?label) = "en")
+}
+
+```
