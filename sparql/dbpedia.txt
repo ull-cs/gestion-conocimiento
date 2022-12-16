@@ -97,7 +97,7 @@ Resultado:
     { "name": { "type": "literal", "xml:lang": "en", "value": "" }	, "birth": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#date", "value": "1791-06-04" }	, "death": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#date", "value": "1831-10-20" }	, "person": { "type": "uri", "value": "http://dbpedia.org/resource/Alphonse_de_Chavanges" }},
     ...
 ```
-4. ¿Cuáles son los 10 primeros países más poblados según la base de datos de DBpedia?
+4. 10 primeros países más poblados según la base de datos de DBpedia.
 ```
 SELECT ?country ?population
 WHERE {
@@ -106,4 +106,15 @@ WHERE {
 }
 ORDER BY DESC(?population)
 LIMIT 10
+```
+5. Ciudades de más de 100000 habitantes en España.
+```
+SELECT ?city ?population
+WHERE {
+    ?city a dbo:City .
+    ?city dbo:country dbr:Spain .
+    ?city dbo:populationTotal ?population .
+    FILTER(?population > 100000)
+}
+
 ```
