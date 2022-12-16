@@ -7,7 +7,7 @@ WHERE {
   FILTER (LANG(?description) = 'en')
 }
 ```
-1. Películas dirigidas por Clint Eastwood.
+2. Películas dirigidas por Clint Eastwood.
 ```
 PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbr: <http://dbpedia.org/resource/>
@@ -64,7 +64,7 @@ Resultado:
     { "peliculas": { "type": "uri", "value": "http://dbpedia.org/resource/Million_Dollar_Baby__Million_Dollar_Baby__1" }},
     { "peliculas": { "type": "uri", "value": "http://dbpedia.org/resource/The_Outlaw_Josey_Wales__The_Outlaw_Josey_Wales__1" }} ] } }
 ```
-2. Nombre y la fecha de nacimiento de las 10 primeras personas registradas.
+3. Nombre y la fecha de nacimiento de las 10 primeras personas registradas.
 ```
 SELECT ?person ?birthPlace WHERE {
    ?person a dbo:Person ;
@@ -88,14 +88,14 @@ Este ejemplo devolvería un conjunto de resultados con dos columnas: la primera 
     { "person": { "type": "uri", "value": "http://dbpedia.org/resource/Alison_Rose" }	, "birthPlace": { "type": "uri", "value": "http://dbpedia.org/resource/Coventry" }},
     { "person": { "type": "uri", "value": "http://dbpedia.org/resource/Alison_Routledge" }	, "birthPlace": { "type": "uri", "value": "http://dbpedia.org/resource/New_Zealand" }} ] } }
 ```
-3. Personas nacidas en Barcelona.
+4. Personas nacidas en Barcelona.
 ```
 SELECT ?person ?name WHERE {
     ?person dbo:birthPlace dbr:Barcelona .
     ?person foaf:name ?name .
 }
 ```
-4. Personas nacidas en París desde 1986.
+5. Personas nacidas en París desde 1986.
 ```
 PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -113,7 +113,7 @@ Resultado:
     { "name": { "type": "literal", "xml:lang": "en", "value": "" }	, "birth": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#date", "value": "1791-06-04" }	, "death": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#date", "value": "1831-10-20" }	, "person": { "type": "uri", "value": "http://dbpedia.org/resource/Alphonse_de_Chavanges" }},
     ...
 ```
-5. 10 primeros países más poblados según la base de datos de DBpedia.
+6. 10 primeros países más poblados según la base de datos de DBpedia.
 ```
 SELECT ?country ?population
 WHERE {
@@ -123,7 +123,7 @@ WHERE {
 ORDER BY DESC(?population)
 LIMIT 10
 ```
-6. Ciudades de más de 100000 habitantes en España.
+7. Ciudades de más de 100000 habitantes en España.
 ```
 SELECT ?city ?population
 WHERE {
@@ -134,7 +134,7 @@ WHERE {
 }
 
 ```
-7. Busca recursos (organizaciones) en DBpedia que tengan una etiqueta (label) en inglés. La salida debe incluir el recurso y su respectiva etiqueta.
+8. Busca recursos (organizaciones) en DBpedia que tengan una etiqueta (label) en inglés. La salida debe incluir el recurso y su respectiva etiqueta.
 ```
 SELECT ?resource ?label
 WHERE {
