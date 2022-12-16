@@ -1,3 +1,12 @@
+1. Deportes existentes en DBpedia.
+```
+SELECT ?sport ?description
+WHERE {
+  ?sport a dbo:Sport .
+  ?sport dbo:abstract ?description .
+  FILTER (LANG(?description) = 'en')
+}
+```
 1. Películas dirigidas por Clint Eastwood.
 ```
 PREFIX dbo: <http://dbpedia.org/ontology/>
