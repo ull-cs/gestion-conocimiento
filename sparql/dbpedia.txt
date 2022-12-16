@@ -97,10 +97,13 @@ Resultado:
     { "name": { "type": "literal", "xml:lang": "en", "value": "" }	, "birth": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#date", "value": "1791-06-04" }	, "death": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#date", "value": "1831-10-20" }	, "person": { "type": "uri", "value": "http://dbpedia.org/resource/Alphonse_de_Chavanges" }},
     ...
 ```
-4. Científicos españoles.
+4. ¿Cuáles son los 10 primeros países más poblados según la base de datos de DBpedia?
 ```
-PREFIX dcterms: <http://purl.org/dc/terms/>
-SELECT ?person WHERE{
-   ?person dcterms:subject <http://es.dbpedia.org/resource/Categoría:Científicos_de_España>
+SELECT ?country ?population
+WHERE {
+   ?country a dbo:Country .
+   ?country dbo:populationTotal ?population .
 }
+ORDER BY DESC(?population)
+LIMIT 10
 ```
