@@ -5,4 +5,3 @@ SELECT ?person WHERE{
    ?person dcterms:subject <http://es.dbpedia.org/resource/Categoría:Científicos_de_España>
 }
 ```
-* 
